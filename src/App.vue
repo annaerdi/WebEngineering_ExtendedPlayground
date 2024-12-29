@@ -162,6 +162,7 @@
         them, and thinks they sound cool.
       </aside>
       <section class="comments" aria-label="Comments section">
+        <CommentSection />
         <button
           class="show-hide"
           aria-expanded="false"
@@ -217,6 +218,7 @@
 
       <section class="more_bears">
         <h3><font size="5">More Bears</font></h3>
+        <BearData />
       </section>
     </article>
 
