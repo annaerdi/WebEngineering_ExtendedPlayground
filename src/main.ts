@@ -1,8 +1,4 @@
-import { initComments } from './modules/commentSection.ts';
-import { getBearData } from './modules/bearData.ts';
+import { createApp } from 'vue';
+import App from './App.vue';
 
-// Initialize the comments functionality
-initComments();
-
-// Fetch and display the bear data
-getBearData();
+createApp(App).mount('#app');
