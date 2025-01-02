@@ -46,6 +46,14 @@ In this playground you will migrate your application to a frontend framework of 
   * The application still should use build and dependency management
 * Adapt your `npm scripts` if necessary
 
+Framework of choice: **Vue.js**
+
+To install the frontend dependencies and start the application, run the following commands:
+```bash
+npm i
+npm run dev
+```
+
 ## 6. Integrate a Backend Framework (10 pts.)
 In this playground you will use a backend framework of your choice and connect it with an API to your frontend application. 
 
@@ -56,6 +64,12 @@ In this playground you will use a backend framework of your choice and connect i
 * (3) Replace the frontend Wikipedia API calls with calls to your backend - the functionality of your frontend should work as before!
 * (Optional): you may want to introduce some sort of caching layer for Wikipedia API requests
 
+Framework of choice: **axum (Rust)**
+
+To start the backend, make sure you have Rust installed and run the following:
+```bash
+cargo run
+```
 
 ## 7. Containerize your application (10 pts.)
 Dockerize your frontend and backend applications. It should be possible to start all services in the corresponding mode (development, production) with a single command (e.g. use Docker Compose for this).
