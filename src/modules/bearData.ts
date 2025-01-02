@@ -1,15 +1,5 @@
 // Function to fetch the image URLs based on the file names
 const baseUrl = 'https://en.wikipedia.org/w/api.php';
-const title = 'List_of_ursids';
-
-const params = {
-  action: 'parse',
-  page: title,
-  prop: 'wikitext',
-  section: '3',
-  format: 'json',
-  origin: '*',
-};
 
 const fetchImageUrl = async (fileName: string): Promise<string | null> => {
   try {
@@ -135,14 +125,19 @@ const extractBears = async (wikitext: string): Promise<void> => {
 };
 
 const getBearData = async (): Promise<void> => {
-  const url = `${baseUrl}?${new URLSearchParams(params).toString()}`;
+  const url = 'http://localhost:3000/bears';
   try {
     const res = await fetch(url);
     const data = await res.json();
-    const wikitext = data.parse.wikitext['*'];
-    extractBears(wikitext); // No need to handle promises here
+    // extract the wikitext string from the data
+    if (data && data.parse && data.parse.wikitext && data.parse.wikitext['*']) {
+      const wikitext = data.parse.wikitext['*'];
+      await extractBears(wikitext);
+    } else {
+      console.error('Unexpected data format from backend:', data);
+    }
   } catch (error) {
-    console.error('Error fetching bear data:', error);
+    console.error('Error fetching bear data from backend:', error);
   }
 };
 
