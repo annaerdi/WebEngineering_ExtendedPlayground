@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+  frontend:
+    build:
+      context: .
+      target: development
+    ports:
+      - "5173:5173"  # expose vite dev server
+    volumes:
+      - .:/app # mount local code for live development
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+
+  backend:
+    build:
+      context: ./backend
+      target: development
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app # mount local code for live development
+    environment:
+      - RUST_LOG=debug
