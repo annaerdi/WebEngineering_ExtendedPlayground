@@ -66,8 +66,9 @@ In this playground you will use a backend framework of your choice and connect i
 
 Framework of choice: **axum (Rust)**
 
-To start the backend, make sure you have Rust installed and run the following:
+To start the backend, make sure you have [Rust](https://www.rust-lang.org/tools/install) installed and run the following:
 ```bash
+cd backend
 cargo run
 ```
 
